@@ -11,10 +11,14 @@ I won't pretend this is easy to visualize, but I will write a second recursive f
 Let's also annotate.*/
 
 function add(n) {
-  return n + (n - 1)
+  if (n === 1) {
+    return 1;
+  } 
+  
+  // return n + (n - 1)
 }
 
-console.log(add(4))
+console.log(add(1))
 
 // first make the function (this will go away with pratice)
 // now lets get the result n + (n - 1)
