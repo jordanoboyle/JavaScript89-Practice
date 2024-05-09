@@ -5,7 +5,7 @@ function reverseString(str) {
     return  console.log(reverseString(str.substring(1)) + str.charAt(0));
 }
 
-console.log(reverseString("hello my name is"))
+reverseString("hello my name is")
 /* Very basically, the function continuously calls itself here until it meets the predetermined condition!
 I won't pretend this is easy to visualize, but I will write a second recursive function below to further illustrate.
 Let's also annotate.*/
@@ -14,11 +14,14 @@ function add(n) {
   if (n === 1) {
     return 1;
   } 
+  else {
+    return n + add(n - 1);
+  }
   
   // return n + (n - 1)
 }
 
-console.log(add(1))
+console.log(add(5))
 
 // first make the function (this will go away with pratice)
 // now lets get the result n + (n - 1)
