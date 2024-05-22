@@ -126,7 +126,7 @@ for (var i = 0; i < needsLowered.length; i++) {  //This is the acceppted answer,
 let result = '';
 needsLowered.split('').forEach(letter => {
   console.log(result += letter);
-});  //observe result, this is not perfect
+});  //observe result, this is not perfec
 
 console.log("Test String"[6])
 console.log("Test String".charAt(6))
