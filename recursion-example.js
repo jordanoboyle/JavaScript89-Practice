@@ -27,3 +27,14 @@ console.log(add(5))
 // now lets get the result n + (n - 1)
 // add conditional that says if n is 1, we don't use the function and return 1
 // add recursive function call in else statement  COMMIT EACH OF THESE CHANGES.
+
+function fib(n) {
+  if (n === 0) {
+    return 1;
+  }
+  else {
+    console.log()
+    return n + fib(n);
+  }
+}
+console.log(fib(1))

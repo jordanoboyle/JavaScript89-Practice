@@ -17,7 +17,12 @@ console.log(person.lastName);
 console.log(person.lastName);
 console.log(person.profession);
 
-console.log("#" * 69);
+let string = "#"
+let repeatedString = ''
+for (let i = 0; i < 40; i++) {
+  repeatedString += string;
+}
+console.log(repeatedString)
 //let's change some values and add a new one
 console.log(person.age);
 person.age = 40;
@@ -27,16 +32,24 @@ person.weaponChoice = "All of them";
 console.log(person);
 console.log(person.weaponChoice);
 
-console.log("#" * 69);
-
+let space = "#";
+let repeatedSpace = "";
+for (i = 0; i < 0; i++) {
+  repeatedSpace += space;
+}
+console.log(repeatedSpace)
 //Let's delete something from the Object
 
 delete person.age;
 console.log(person);
 console.log(person.age);
 
-console.log("#" * 69);
-console.log("#" * 69);
+let string2 = "#";
+let repeatedString2 = '';
+for (i = 0; i < 40; i++) {
+  repeatedString2 += string2;
+}
+console.log(repeatedString2)
 
 //Here we are going to quick cover the Mapy Object and it's properties. 
 // Map objects keep insertion order (Whereas Objects are limited to strings or SYMBOLS as keys, 
@@ -53,7 +66,15 @@ myMap.set({ access: "object" }, "value4");
 
 console.log(myMap);
 
-console.log("#" * 69);
+let space2 = "$";
+let spaceRepeat = "";
+let n = 0;
+while (n < 35) {
+  spaceRepeat += space2;
+  n += 1;
+}
+console.log(spaceRepeat)
+
 // Let's retrieve some values for the MAP using 'get'
 console.log(myMap.get("key1"));
 console.log(myMap.get({ access: "object" }));
