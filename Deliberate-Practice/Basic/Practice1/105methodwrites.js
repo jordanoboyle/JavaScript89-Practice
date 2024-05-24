@@ -70,7 +70,7 @@ spaceBar();
 
 // # 7 Write a method that takes in a number and returns the number as a string. Then run the method and print the result.
 function returnAsAString(number) {
-  return String(number);
+  return String(number);    
 }
 let numberString = returnAsAString(29839);
 console.log(typeof numberString);
