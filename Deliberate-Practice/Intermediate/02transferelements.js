@@ -76,13 +76,100 @@ let evensTwo = numbersOne.filter(function(num) {
 console.log(evensTwo);
 
 // # 5 Start with an array of strings and create a new array with only the strings shorter than 4 letters. For example, ["a", "man", "a", "plan", "a", "canal", "panama"] becomes ["a", "man", "a", "a"].
+let randStrings = ["a", "man", "a", "plan", "a", "canal", "panama"];
+let shorterThanFour = [];
+randStrings.forEach(str => {
+  if (str.length < 4) {
+    shorterThanFour.push(str);
+  }
+});
+console.log(shorterThanFour);
+
+//option 2 .filter()
+let shorterThanFourTwo = randStrings.filter(function(str) {
+  return str.length < 4;
+});
+console.log(shorterThanFourTwo);
+spaceBar();
 
 // # 6 Start with an array of hashes and create a new array with only the hashes with names shorter than 6 letters (from the :name key). For example, [{name: "chair", price: 100}, {name: "pencil", price: 1}, {name: "book", price: 4}] becomes [{name: "chair", price: 100}, {name: "book", price: 4}].
+let itemsPrice = [{name: "chair", price: 100}, {name: "pencil", price: 1}, {name: "book", price: 4}];
+let namesLessSix = [];
+itemsPrice.forEach(function(item) {
+  if (item.name.length < 6) {
+    namesLessSix.push(item.name);
+  }
+});
+console.log(namesLessSix);
+//option 2 .filter()
+let namesLessSixTwo = itemsPrice.filter(item => {
+  return item.name.length < 6;
+})
+console.log(namesLessSixTwo);
+spaceBar();
+// # 7 Start with an array of numbers and create a new array with only the numbers less than 10. For example, [8, 23, 0, 44, 1980, 3, 10, 9] becomes [8, 0, 3, 9].
+let numbersTwo = [8, 23, 0, 44, 1980, 3, 10, 9];
+let lessThanTen = [];
+numbersTwo.forEach(number => {
+  if (number < 10) {
+    lessThanTen.push(number);
+  }
+});
+console.log(lessThanTen);
 
-// # 7 Start with an array of numbers and create a new array with only the numbers less than 10. For example, [8, 23, 0, 44, 1980, 3] becomes [8, 0, 3].
+//option 2 .filter()
+let lessThanTenTwo = numbersTwo.filter(number => {
+  return number < 10;
+});
+console.log(lessThanTenTwo);
 
-// # 8 Start with an array of strings and create a new array with only the strings that don't start with the letter "b". For example, ["big", "little", "good", "bad"] becomes ["little", "good"].
+spaceBar();
+// # 8 Start with an array of strings and create a new array with only the strings that don't start with the letter "b". For example, ["big", "little", "good", "bad", "ball", "Catherine"] becomes ["little", "good", "Catherine"].
+let wordsTwo = ["big", "little", "good", "bad", "ball", "Catherine"];
+let startWithB = [];
+wordsTwo.forEach(function(word) {
+  if (word.toLowerCase()[0] !== "b") {
+    startWithB.push(word);
+  }
+});
+console.log(startWithB);
 
-// # 9 Start with an array of hashes and create a new array with only the hashes with prices less than 10 (from the :price key). For example, [{name: "chair", price: 100}, {name: "pencil", price: 1}, {name: "book", price: 4}] becomes [{name: "pencil", price: 1}, {name: "book", price: 4}].
+//option 2 filter
+
+let startWithBTwo = wordsTwo.filter(word => {
+  return word.toLowerCase()[0] !== "b";
+});
+console.log(startWithBTwo);
+spaceBar();
+
+// # 9 Start with an array of hashes and create a new array with only the hashes with prices less than 10 (from the :price key). For example, [{name: "chair", price: 100}, {name: "bird feeder", price: 9},{name: "rubber duck", price: 10}, {name: "pencil", price: 1}, {name: "book", price: 4}] becomes [{name: "bird feeder", price: 9}, {name: "pencil", price: 1}, {name: "book", price: 4}].
+let itemsPriceTwo = [{name: "chair", price: 100}, {name: "bird feeder", price: 9},{name: "rubber duck", price: 10}, {name: "pencil", price: 1}, {name: "book", price: 4}];
+let priceLessThanTen = [];
+itemsPriceTwo.forEach(function(item) {
+  if (item.price < 10) {
+    priceLessThanTen.push(item.name);
+  }
+});
+console.log(priceLessThanTen);
+
+//option 2 .filter()
+let priceLessThanTentwo = itemsPriceTwo.filter(item => {
+  return item.price < 10;
+});
+console.log(priceLessThanTentwo);
+spaceBar();
 
 // # 10 Start with an array of numbers and create a new array with only the odd numbers. For example, [2, 4, 5, 1, 8, 9, 7] becomes [5, 1, 9, 7].
+let findTheOdds = [2, 4, 5, 1, 8, 9, 7];
+let oddNumbers = [];
+findTheOdds.forEach(function(number) {
+  if (number % 2 !== 0) {
+    oddNumbers.push(number);
+  }
+});
+console.log(oddNumbers);
+
+let oddNumbersTwo = findTheOdds.filter(function(number) {
+  return number % 2 !== 0;
+});
+console.log(oddNumbersTwo);
