@@ -1,8 +1,14 @@
 
+
+
+let order = 120;
+let discount = 0.15;
 let taxRate = 10;
-let daysOver = 10;
-let fine = (7 + (3 * 2));
+let orderPlusDiscount = order - (order * discount)
+console.log(orderPlusDiscount);
 
-let total = (fine + (fine * (taxRate / 100)));
+let total = (orderPlusDiscount + (orderPlusDiscount * (taxRate / 100)));
 
-console.log(total.toFixed(2));
+console.log(total);
+
+

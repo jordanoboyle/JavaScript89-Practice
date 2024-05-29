@@ -61,7 +61,7 @@ function fineTotal(bookType, daysOver, taxRate) {
   return console.log(`Your total fine, including tax is ${total.toFixed(2)}`);
 }
 fineTotal("regular", 10, 10);
-
+spaceBar();
 // BONUS: write a method that generates a random book type, and random number of days for overdue to test your other method. 
 
 // 3. Write a program that stores a person's order value and membership level (regular or premium). Then calculate a discount amount based on the following conditions:
@@ -69,7 +69,32 @@ fineTotal("regular", 10, 10);
 // If the total order value is less than $50, there is no discount.
 // If the total order value is between $50 and $100, the discount is 5% for regular customers and 10% for premium customers.
 // If the total order value is greater than $100, the discount is 10% for regular customers and 15% for premium customers.
-
+function memberPrice(memberLevel, orderValue, taxRate) { 
+  if (memberLevel === "reg" || memberLevel === "prem") { 
+    let preTaxTotal = 0;
+    if (orderValue < 50) {
+      preTaxTotal = orderValue;
+    } else if (orderValue > 50 && orderValue <= 100) {
+      if (memberLevel === "reg") {
+        preTaxTotal = (orderValue - (orderValue * 0.05));
+      } else {
+        preTaxTotal = (orderValue - (orderValue * 0.10));
+      }
+    } else {
+      if (memberLevel === "reg") {
+        preTaxTotal = (orderValue - (orderValue * 0.10));
+      } else {
+        preTaxTotal = (orderValue - (orderValue * 0.15));
+      }
+    }
+    let totalWithTax = preTaxTotal + (preTaxTotal * (taxRate / 100));
+    return console.log(`You total plus tax is : $${totalWithTax.toFixed(2)}`);
+  } else {
+    return console.log("Please enter a valid membership level.");
+  }
+}
+memberPrice("reg", 120, 10);
+spaceBar();
 // 4. Write a Ruby program that stores the weight of a package and the destination (domestic or international). Then calculate the shipping fee based on the following conditions:
 
 // If the destination is domestic:
@@ -78,3 +103,10 @@ fineTotal("regular", 10, 10);
 // If the destination is an international shipment:
 // If the weight is less than or equal to 1 kg, the shipping fee is $15.
 // If the weight is greater than 1 kg, the shipping fee is $25.
+
+function packagePrice(weight, destination, taxRate) {
+  let decTaxRate = taxRate / 100
+  console.log(weight, destination, decTaxRate);
+}
+
+packagePrice(1.2, "international", 10);
