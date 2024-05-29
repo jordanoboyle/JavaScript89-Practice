@@ -107,10 +107,14 @@ spaceBar();
 function packagePrice(weight, destination, taxRate) {
   let decTaxRate = taxRate / 100;
   if (destination === "domestic" || destination === "international") {
-    return console.log("you pass the test");
+    if (destination === "domestic") {
+      console.log("domestic pass");
+    } else {
+      console.log("international pass");
+    }
   } else {
     console.log("Please enter valid destination");
   }
 }
 
-packagePrice(1.2, "internationa", 10);
+packagePrice(1.2, "domestic", 10);
