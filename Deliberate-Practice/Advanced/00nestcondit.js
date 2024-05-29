@@ -106,15 +106,26 @@ spaceBar();
 
 function packagePrice(weight, destination, taxRate) {
   let decTaxRate = taxRate / 100;
+  let cost = 0
   if (destination === "domestic" || destination === "international") {
     if (destination === "domestic") {
-      console.log("domestic pass");
+      if (weight <= 1.0) {
+        cost = 5;
+      } else {
+        cost = 10;
+      }
     } else {
-      console.log("international pass");
+      if (weight < 1.0) {
+        cost = 15.00;
+      } else {
+        cost = 25.00;
+      }
     }
   } else {
     console.log("Please enter valid destination");
   }
+  let totalWithTax = cost + (cost * decTaxRate);
+  return console.log(`Your shippng total plus tax is: $${totalWithTax.toFixed(2)}`);
 }
 
-packagePrice(1.2, "domestic", 10);
+packagePrice(1.2, "international", 10);
