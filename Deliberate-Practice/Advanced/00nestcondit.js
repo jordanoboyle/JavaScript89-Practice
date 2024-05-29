@@ -105,8 +105,12 @@ spaceBar();
 // If the weight is greater than 1 kg, the shipping fee is $25.
 
 function packagePrice(weight, destination, taxRate) {
-  let decTaxRate = taxRate / 100
-  console.log(weight, destination, decTaxRate);
+  let decTaxRate = taxRate / 100;
+  if (destination === "domestic" || destination === "international") {
+    return console.log("you pass the test");
+  } else {
+    console.log("Please enter valid destination");
+  }
 }
 
-packagePrice(1.2, "international", 10);
+packagePrice(1.2, "internationa", 10);
