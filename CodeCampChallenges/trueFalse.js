@@ -1,7 +1,7 @@
 
 console.log(false === true);
 console.log(false !== true);
-console.log(false)
+console.log(false);
 
 
 // Check if a value is classified as a boolean primitive. Return true or false.
@@ -10,9 +10,9 @@ console.log(false)
 
 function booWho(bool) {
   if (bool === true || bool === false) {
-    return true
+    return true;
   } else {
-    return false
+    return false;
   }
  
 }
