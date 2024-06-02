@@ -41,9 +41,31 @@ listOne.addItem("salmon");
 listOne.displayItems();
 listOne.removeItem("salmons");
 
-
+spaceBar();
 
 // 2. Write a Product class that stores the name, price, and metadata, where metadata is a hash that stores additional information about the product.
+
+class Product {
+  constructor(name, price, metadata = {brand: "", color: ""}) {
+    this.name = name;
+    this.price = price;
+    this.metadata = metadata;
+  }
+
+  displayMetaData() {
+    console.log(`${this.name} is made by ${this.metadata.brand} and has the color ${this.metadata.color}`);
+  }
+
+  adjustColor(diffColor) {
+    this.metadata.color = diffColor;
+  }
+}
+let itemOne = new Product("Lounge Chair", 56, {brand: "Lay-Z-Boy", color: "Shiny Black"});
+console.log(itemOne);
+itemOne.displayMetaData();
+itemOne.adjustColor("Red Suade");
+console.log(itemOne);
+
 
 // 3. Write a Playlist class that stores a name and an array of songs with methods to add a song, remove a song, shuffle the songs into a random order, and display all the songs.
 
