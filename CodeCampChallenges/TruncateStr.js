@@ -1,4 +1,3 @@
-
 // function truncateString(str, num) {
 //   let newString = "";
 //   if (str.length > num) {
@@ -20,5 +19,3 @@ function truncateString(str, num) {
   return newString;
 }
 console.log(truncateString("A-tisket a-tasket A green and yellow basket", 8));
-  
-  
