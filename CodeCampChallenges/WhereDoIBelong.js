@@ -4,13 +4,31 @@
 
 // Likewise, getIndexToIns([20,3,5], 19) should return 2 because once the array has been sorted it will look like [3,5,20] and 19 is less than 20 (index 2) and greater than 5 (index 1).
 
-function getIndexToIns(arr, /*num*/) {
+function getIndexToIns(arr, num) {
   let sortArray = arr.sort(function(a, b) {return a - b});
-  sortArray.forEach(element => {
-    console.log(sortArray.indexOf(element));
-  });
-
-  
+  if (!sortArray.length) { 
+    sortArray.push(num);
+  } else if (num <= sortArray[0]) {
+    sortArray.splice(0, 0, num);
+  } else if (num >= sortArray[sortArray.length - 1]) {
+    sortArray.splice(sortArray.length, 0, num);
+  } else {
+    for (let i = 0; i < sortArray.length; i++) {
+      if (num >= sortArray[i] && num <= sortArray[i + 1]) {
+        sortArray.splice(sortArray.indexOf(sortArray[i + 1]), 0, num);
+        break;
+      }
+    }
+  }
+  return sortArray.indexOf(num);
 }
 
-getIndexToIns([5, 3, 20, 3], /*50*/);
+console.log(getIndexToIns([], 17 )); // return 0
+console.log(getIndexToIns([10, 20, 30, 40, 50], 35)); ///return 3
+console.log(getIndexToIns([10, 20, 30, 40, 50], 30)); // return 2
+console.log(getIndexToIns([5, 3, 20, 3], 5)); // return 2
+
+
+
+
+// for (let i = 0; i < sortArray.length; i++)
