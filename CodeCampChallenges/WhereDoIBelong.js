@@ -28,7 +28,18 @@ console.log(getIndexToIns([10, 20, 30, 40, 50], 35)); ///return 3
 console.log(getIndexToIns([10, 20, 30, 40, 50], 30)); // return 2
 console.log(getIndexToIns([5, 3, 20, 3], 5)); // return 2
 
+// You can do this:
+function indexToInsert (arr, num) {
+  let sorted = arr.sort((a, b) => {a - b});
+  for (let i = 0; i < sorted.length; i++) {
+    if (sorted[i] >= num) {
+      return i;
+    }
+  }
+  return arr.length
+}
 
-
+let number = 8;
+console.log(number > undefined);
 
 // for (let i = 0; i < sortArray.length; i++)
