@@ -66,11 +66,30 @@ numbersOne.forEach(numOne => {
   });
 });
 console.log(greatestProduct);
-
+spaceBar();
 
 // 5. Use a nested loop to compute the sum of all the numbers in an array of number pairs.
 // For example, [[1, 3], [8, 9], [2, 16]] becomes 39.
+let pairsArray = [[1, 3], [8, 9], [2, 16]];
+let sum = 0;
+for (let i = 0; i < pairsArray.length; i++) {
+  let pair = pairsArray[i];
+  for (let j = 0; j < pair.length; j++) {
+    sum = sum + pair[j];
+  }
+}
+console.log(sum);
+spaceBar();
 
 // 6. Use a nested loop with two arrays of numbers to create a new array of the sums of each combination of numbers.
 // For example, [1, 2] and [6, 7, 8] becomes [7, 8, 9, 8, 9, 10].
+let original = [1, 2];
+let originalOne = [6, 7, 8];
+let newSumArray = [];
 
+original.forEach(function(number) {
+  originalOne.forEach(function(numTwo) {
+    newSumArray.push(number + numTwo);
+  });
+});
+console.log(newSumArray);
