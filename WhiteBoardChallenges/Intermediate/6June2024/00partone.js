@@ -104,11 +104,35 @@ console.log("Answer 7");
 findTwoSmallest(numbersOne);
 //Notes: You can easily run a sort function here to get the answers you seek, however this will be O(n^2) despite being an optimized algorithm called Timsort which combines merge sort and insertion sort. 
 
-
+spaceBar();
 // # 8) Write a function that takes in an array of numbers and returns a count of how many zeros are in the array.
+let numbersThree = [505, 40, 306, 23, 200]; // => 5
+//first we should join the entire array and turn everything into strings
+function countZeros(numArray) {
+  let stringNumArray = numArray.join("");
+  let countZero = 0;
+  for (let i = 0; i < stringNumArray.split("").length; i++) {
+    if (stringNumArray.split("")[i] === "0") {
+      countZero += 1;
+    }
 
+  }
+  return countZero;
+}
+console.log(countZeros(numbersThree));
+spaceBar();
 // # 9) Write a function that takes in an array of numbers and returns true if all the numbers are bigger than 10, otherwise returns false.
-
+let numbersFour = [100, 11, 20, 10.01, 50, 10.0001, 13, 59, 13];
+function greaterThanTen(numArray) {
+  let tF = true
+  numArray.forEach(num => {
+    if (num < 10) {
+      tF = false;
+    }
+  })
+  return tF;
+}
+console.log(greaterThanTen(numbersFour));
 spaceBar();
 // # 10) Write a function that takes in an array of words and returns the number of times the letter “a” appeared in total.
 let arrayOfWordsWithA = ["array", "takes", "appeared", "total", "batman"]; // => 8
