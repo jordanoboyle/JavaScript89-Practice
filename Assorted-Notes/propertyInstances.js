@@ -34,7 +34,8 @@ for (let property in canary) {
     prototypeProperties.push(property);
   }
 }
-
+// Notes: here we see that the prototypes are stored throughout the script and technically with the "own properties"
+// however they are not part of the original constructor. This is an important distinction which will matter later
 console.log("For comparison, here is instance");
 console.log(canary);
 console.log("Here are the prototype properties");
