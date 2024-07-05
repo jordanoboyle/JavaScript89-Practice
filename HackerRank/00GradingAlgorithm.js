@@ -7,20 +7,20 @@ function gradingHackerU(studentNum, gradeArray) {
   for (let j = 40; j <= 100; j += 5) {
     compare.push(j);
   }
-
-  for (let i = 0; i < gradeArray.length; i++) {
-    if (gradeArray[i] < 38) {
-      grades.push(gradeArray[i]);
-    } else if (gradeArray[i] >= 38) {
-      for (let k = 0; k < compare.length; k ++) {
-        if (gradeArray[i] >= compare[k] && (compare[k + 1] - gradeArray[i]) < 3) {
-          console.log("don't touch");
-          console.log(gradeArray[i]);
+  gradeArray.forEach(g => {
+    if (g < 38) {
+      grades.push(g)
+    } else if (g >= 38) {
+      compare.forEach(scale => {
+        if (scale - g <= 2 && scale - g >=0) {
+          grades.push(g + (scale - g))
+        } else if (scale - g >= 2) {
+          grades.push(g); ///SOMEWHERE IN HERE I NEED TO SKIP  TO NEXT ELEMENT IN FIRST LOOP
         }
-      }
+      })
     }
-  }
-  return console.log(compare, grades);
+  })
+  return console.log(grades)
 }
 //print the grades out
 //print out pass fail situations
