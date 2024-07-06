@@ -1,39 +1,28 @@
 let studNum = 4;
 let grades = [73, 67, 38, 33];
 
-function gradingHackerU(studentNum, gradeArray) {
-  let grades = [];
-  let compare = [];
-  for (let j = 40; j <= 100; j += 5) {
-    compare.push(j);
-  }
+function gradingHackerU(gradeArray) {
+  let scaling = [];
+
   gradeArray.forEach(g => {
     if (g < 38) {
-      grades.push(g)
+      scaling.push(g);
     } else if (g >= 38) {
-      compare.forEach(scale => {
-        if (scale - g <= 2 && scale - g >=0) {
-          grades.push(g + (scale - g))
-        } else if (scale - g >= 2) {
-          grades.push(g); ///SOMEWHERE IN HERE I NEED TO SKIP  TO NEXT ELEMENT IN FIRST LOOP
-        }
-      })
+      let factor = g % 10;
+      if (10 - factor <= 2 && 10 - factor >= 0) {
+        scaling.push(g + (10 - factor));
+      } else if (5 - factor <= 2 && 5 - factor >= 0) {
+        scaling.push(g + (5 - factor));
+      } else {
+        scaling.push(g);
+      }
     }
-  })
-  return console.log(grades)
+  });
+  return console.log(scaling);
 }
-//print the grades out
-//print out pass fail situations
-//conditional pass fail and print array of pass fail
-//We need something to compare the grades to? build an object or array?
-///WE HAVE REACHED A STOPPING POINT, RETURN TOMORROW
-//THOUGHT PROCESS IS TO COMPARE THE VALUE IN GRADEARRAY TO WHAT IT MAY BE IF YOU SUBTRACT OUR TRACKING ARRAY
-
 
 gradingHackerU(studNum, grades);
 
-// let fives = [];
-// for (let j = 40; j <= 100; j += 5) {
-//   fives.push(j);
-// }
-// console.log(fives);
+// here we have a factoring modulo solution. I believe lines 10 to 18 can be refactored into something similar. 
+// It is also possible to use regex here (you just where you would convert the number after matching)
+// There
