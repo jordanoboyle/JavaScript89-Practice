@@ -1,4 +1,6 @@
 let numbersThree = [505, 40, 306, 23, 200];
-let stringNums = numbersThree.join("");
 
-console.log(typeof(stringNums));
+
+let filtered = numbersThree.filter((num)  => num !== 23);
+
+console.log(filtered);
