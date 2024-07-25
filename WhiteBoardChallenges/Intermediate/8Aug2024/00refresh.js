@@ -72,10 +72,77 @@ findShortestTwo(testOne);
 spaceBar();
 
 
-
-
 // 3) Write a function that takes in an array of numbers and returns a new array with the numbers in reverse order.
+//This should probably start with a ordered array, though that is not exactly necessary
+
+let orderedNumArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+function reverseArrayOrder(orderedArray) {
+  let reversed = [];
+  // need to use a for loop here, though a while works fine too
+  for (let i = orderedArray.length - 1; i >= 0; i--) {
+    reversed.push(orderedArray[i]);
+  }
+  return console.log(reversed);
+}
+function reverseArrayOrderTwo(orderedArray) {
+  let reversed = [];
+  let i = orderedArray.length - 1;
+  while (i >= 0) {
+    reversed.push(orderedArray[i]);
+    i--;
+  }
+  return console.log(reversed);
+}
+
+
+
+console.log("first method");
+reverseArrayOrder(orderedNumArray);
+
+console.log("second method");
+reverseArrayOrderTwo(orderedNumArray);
+
+spaceBar();
 
 
 // 4) Write a function that takes in an array of words and returns the number of words that begin with the letter “a”.
+
+let wordArray = ["arrange", "bat", "bird", "arrow", "Albeit", "alcove", "freedom"]; //=> 4
+
+function numStartWithA(words) {
+  let numWithA = 0;
+  // we can do a unique For Of loop here
+  for (let w of words) {
+    if (w[0].toLowerCase() === "a") {
+      numWithA += 1;
+    }
+  }
+  return console.log(numWithA);
+}
+
+//Method 2
+// While loops have a unique "Do while" structure which we will practice here for use later. A unique property of a Do While loop is that it will always run at least one pass because the code block is executed before the condition is checked. 
+function numStartWithATwo(words) {
+  let numWithA = 0;
+  let i = 0;
+  do {
+    if (words[i][0].toLowerCase() === "a") {
+      numWithA += 1;
+    }
+    i ++;
+  }
+  while (i < words.length);
+
+  return console.log(numWithA);
+}
+
+
+console.log("First Method");
+numStartWithA(wordArray);
+
+console.log('Second Method');
+numStartWithATwo(wordArray);
+
+spaceBar();
 
