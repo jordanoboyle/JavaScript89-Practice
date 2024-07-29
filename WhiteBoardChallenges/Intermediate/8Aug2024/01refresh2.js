@@ -143,3 +143,27 @@ countTheAs(wordsArray1);
 countTheAs(wordsArray2);
 countTheAs(wordsArray3);
 spaceBar();
+
+function countTheAsTwo(wordArr) {
+  let aTotal = 0;
+  let a = 0;
+  let A = 0;
+
+  let letters = wordArr.join("");
+  for (let letter of letters) {
+    if (letter === "a" || letter === "A") {
+      aTotal += 1;
+      if (letter === "a") {
+        a += 1;
+      } else {
+        A += 1;
+      }
+    }
+  }
+  return console.log(`Total a's: ${aTotal}, lower a's: ${a}, upper A's: ${A}`);
+}
+countTheAsTwo(wordsArray1);
+countTheAsTwo(wordsArray2);
+countTheAsTwo(wordsArray3);
+
+spaceBar();
