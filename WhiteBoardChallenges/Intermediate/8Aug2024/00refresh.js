@@ -52,7 +52,7 @@ function findShortest(strArray) {
 function findShortestTwo(strArray) {
   let shortest = strArray[0];
   let index = 0;
-  while(index < strArray.length) {
+  while (index < strArray.length) {
     if (strArray[index].length < shortest.length) {
       shortest = strArray[index];
     }

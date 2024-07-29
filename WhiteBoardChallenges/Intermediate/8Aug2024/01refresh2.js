@@ -95,5 +95,51 @@ spaceBar();
 
 
 // 9) Write a function that takes in an array of numbers and returns true if all the numbers are bigger than 10, otherwise returns false.
+const arrayGreaterThanTen1 = [10.0001, 11, 12.5, 13.3, 14.9, 15];
+// Expected Output: true
+const arrayGreaterThanTen2 = [10.0, 11.5, 12, 9.999, 13, 14.2];
+// Expected Output: false (because of 10.0 and 9.999)
+const arrayGreaterThanTen3 = [10.00001, 10.000001, 10.0000001, 10.00000001, 11];
+// Expected Output: true
+
+function allGreaterThan10(numArray) {
+  let greaterThanTen = true;
+  for (let num of numArray) {
+    if (num <= 10) {
+      greaterThanTen = false;
+      break;
+    }
+  }
+  return console.log(greaterThanTen);
+}
+
+allGreaterThan10(arrayGreaterThanTen1);
+allGreaterThan10(arrayGreaterThanTen2);
+allGreaterThan10(arrayGreaterThanTen3);
+spaceBar();
+
 
 // 10) Write a function that takes in an array of words and returns the number of times the letter “a” appeared in total.
+const wordsArray1 = ["Apple", "banana", "Avocado", "grape", "Apricot", "Mango", "Peach"];
+// Expected Output: 10 (a: 4, A: 6)
+const wordsArray2 = ["Alpaca", "ant", "aardvark", "Atlas", "Alpha", "lamp", "panama"];
+// Expected Output: 13 (a: 8, A: 5)
+const wordsArray3 = ["Area", "Arena", "Asthma", "Cactus", "data", "Caravan", "Arcade"];
+// Expected Output: 12 (a: 5, A: 7)
+
+function countTheAs(wordArray) {
+  let numA = 0;
+
+  let letters = wordArray.join("");
+  for (let letter of letters) {
+    if (letter.toLowerCase() === "a") {
+      numA += 1;
+    }
+  }
+  return console.log(numA);
+}
+
+countTheAs(wordsArray1);
+countTheAs(wordsArray2);
+countTheAs(wordsArray3);
+spaceBar();
