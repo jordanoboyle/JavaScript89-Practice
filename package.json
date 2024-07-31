@@ -1,0 +1,15 @@
+{
+  "name": "javascript89-practice",
+  "version": "1.0.0",
+  "description": "Currently this Repo involves all sorts of different types of practices from algotrithms to notes on data structures and what the best use case is for each one. This also has basic practice involved which is meant to solidify and assist in the memorization of fundamental concepts of node.js.",
+  "main": "test.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
+}

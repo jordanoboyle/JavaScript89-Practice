@@ -41,8 +41,26 @@ function detectAnagogram(word, comparisonArray) {
     anaObjects.push(object);
   });
 
-  
-  return [anaObjects, source];
+  let anagrams = [];
+  let index = 0;
+  anaObjects.forEach(obj => {
+    let isAna = true;
+    let index2 = 0;
+    for (let [key, value] of Object.entries(obj)) {
+      if (obj[key] !== source[key]) {
+        isAna = false;
+        break;
+      } else {
+        index2 += 1;
+      }
+    }
+    if (isAna) {
+      anagrams.push(comparisonArray[index]);
+    }
+    index += 1;
+  })
+
+  return anagrams;
 }
 
 console.log(detectAnagogram(word, wordsArray));
