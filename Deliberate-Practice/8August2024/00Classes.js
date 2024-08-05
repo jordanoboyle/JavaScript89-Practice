@@ -55,14 +55,44 @@ class BankAccount {
 
   accountBalance() {
     const balance = (this.accountAmount / 100).toFixed(2);  //.toFixed(x) is necessary to add needed decimal points
-    return balance;
+    if (balance > 100) {
+      return balance;
+    } else {
+      return `Warning, your balance is ${balance}, which is below your withdrawal limit.`;
+    }
   }
-  
+
+  depositMoney(depositAmount) {
+    this.accountAmount += (depositAmount * 100);
+    return `Your deposit is confirmed. Current balance: ${(this.accountAmount / 100).toFixed(2)}`;
+  }
+
+  withdrawalMoney(withdrawalAmount) {
+    if (withdrawalAmount % 20 !== 0) {
+      return "Your withdrawal amount must be in multiples of 20";
+    } else if (withdrawalAmount > 600) {
+      return "You can only withdrawal up to $600.00.";
+    } else {
+      this.accountAmount -= (withdrawalAmount * 100);
+      return `Thank you for your withdrawal. \n
+      Your remaing balance is: ${this.accountBalance()}`;
+    }
+  }
+
+
 }
 
 let account1 = new BankAccount("Jordan", "O'Boyle", 315.00);
 console.log(account1);
 console.log(account1.accountBalance());
+console.log(account1.depositMoney(451.89));
+console.log(account1.accountBalance());
+
+console.log(account1.withdrawalMoney(150));
+console.log(account1.withdrawalMoney(700));
+console.log(account1.withdrawalMoney(200));
+
+
 
 
 
