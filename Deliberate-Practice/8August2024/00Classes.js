@@ -41,6 +41,29 @@ spaceBar();
 
 // # 5 Write an Account class with attributes and reader/writer methods for name and balance. Then write a method that prints a warning if the balance is below $100.
 
+class BankAccount {
+  constructor (accountOwnerFirst, accountOwnerLast, accountAmount) {
+    this.accountOwnerFirst = accountOwnerFirst;
+    this.accountOwnerLast  = accountOwnerLast
+    this.accountAmount     = accountAmount * 100;
+  }
+
+  ammountInPennies() {
+    console.log(`We store money in the smallest unit. ${this.accountOwnerFirst} ${this.accountOwnerLast}
+      has ${this.accountAmount} pennies in there account.`);
+  }
+
+  accountBalance() {
+    const balance = (this.accountAmount / 100).toFixed(2);  //.toFixed(x) is necessary to add needed decimal points
+    return balance;
+  }
+  
+}
+
+let account1 = new BankAccount("Jordan", "O'Boyle", 315.00);
+console.log(account1);
+console.log(account1.accountBalance());
+
 
 
 // # 7 Write a Car class with attributes and reader/writer methods for make, model, year, and color. Then write a method that returns the make and model as a single sentence in all lowercase letters.
