@@ -95,7 +95,31 @@ console.log(account1.withdrawalMoney(200));
 
 
 
-
+spaceBar();
+spaceBar();
 // # 7 Write a Car class with attributes and reader/writer methods for make, model, year, and color. Then write a method that returns the make and model as a single sentence in all lowercase letters.
 
+class Car {
+  constructor (make, model, year) {
+    this.make = make.charAt(0).toUpperCase() + make.slice(1);
+    this.model = model.charAt(0).toUpperCase() + model.slice(1);
+    this.year = year.toString();
+  }
+
+  displayMakeModel() {
+    return `Make: ${this.make.toLowerCase()}, Model: ${this.model.toLowerCase()}.`;
+  }
+
+  changeYear(newModelYear) {
+    this.year = newModelYear.toString();
+    return this.year;
+  }
+
+}
+
+let car1 = new Car("honda", "civic", 2007);
+console.log(car1);
+console.log(car1.displayMakeModel());
+car1.changeYear(2019);
+console.log(car1);
 // 3. Write a Playlist class that stores a name and an array of songs with methods to add a song, remove a song, shuffle the songs into a random order, and display all the songs.
