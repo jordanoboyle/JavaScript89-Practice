@@ -123,3 +123,30 @@ console.log(car1.displayMakeModel());
 car1.changeYear(2019);
 console.log(car1);
 // 3. Write a Playlist class that stores a name and an array of songs with methods to add a song, remove a song, shuffle the songs into a random order, and display all the songs.
+
+class Playlist {
+  constructor(name = "New Playlist", playlist = [{song: "", artist: ""}]) {
+    this.name = name;
+    this.playlist = playlist;
+  }
+
+  addSingleSong(songName, artistName) {
+    if (songName === undefined || artistName === undefined) {
+      return "Error: you must have bother artist and song name";
+    } else if (this.playlist[0]["song"] === "" && this.playlist[0]["artist"] === '') {
+      this.playlist[0]["song"]   = songName;
+      this.playlist[0]['artist'] = artistName;
+    } else {
+      this.playlist.push({song: songName, artist: artistName});
+      return this.playlist;
+    }
+  }
+}
+
+let playlist1 = new Playlist("Platonic Chill Lounge");
+console.log(playlist1);
+playlist1.addSingleSong("Starlight", "Tune In with Chewie");
+console.log(playlist1);
+console.log(playlist1.addSingleSong("Studytime"));
+playlist1.addSingleSong("Rusty Ruin Zone, ft: Houndtrack and Jona Fuller", "Tune In With Chewie");
+console.log(playlist1);
