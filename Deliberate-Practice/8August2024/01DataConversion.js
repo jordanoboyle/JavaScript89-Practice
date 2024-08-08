@@ -23,14 +23,62 @@ function convertedNestToHash(nestArray) {
   return convert;
 }
 console.log(convertedNestToHash(nestedNumArray));
-
+spaceBar();
 
 // 2. Convert an array of hashes into a hash using the :id key from the array's hashes as the keys in the new hash.
-// For example, [{id: 1, color: "blue", price: 32}, {id: 2, color: "red", price: 12}] becomes {1 => {id: 1, color: "blue", price: 32}, 2 => {id: 2, color: "red", price: 12}}.
+// For example, [{id: 1, color: "blue", price: 32}, {id: 2, color: "red", price: 12}, {id: 3, color: "green", price: 13}] becomes {1 => {id: 1, color: "blue", price: 32}, 2 => {id: 2, color: "red", price: 12}, 3 => {id: 3, color: "green", price: 13}}.
+const itemColorPrice = [{id: 1, color: "blue", price: 32}, {id: 2, color: "red", price: 12}, {id: 3, color: "green", price: 13}];
 
+function addIdNumbers(arrayHashes) {
+  let assignIds = {};
+
+  let i = 0;
+  while (i < arrayHashes.length) {
+    assignIds[arrayHashes[i].id] = arrayHashes[i];
+    i += 1;
+  }
+  return assignIds;
+} 
+console.log(addIdNumbers(itemColorPrice));
+
+//ANOTHER OPTION IS TO CREATE A MAP WITHIN JS IN ORDER TO NOT HAVE THE KEYS BE STRINGS (KEYS ARE ALWAYS STRINGS)
+const itemColorPrice1 = [{id: 1, color: "blue", price: 32}, {id: 2, color: "red", price: 12}, {id: 3, color: "green", price: 13}];
+
+function addIdNumbers1(arrayHashes) {
+  let assignIds = new Map();
+
+  let i = 0;
+  //below is where we will be assigning the map values and keys. When we are creating a new map we use new Map() and to set values within we use .set(mapKey, mapValue)
+  while (i < arrayHashes.length) {
+    assignIds.set(arrayHashes[i].id, arrayHashes[i]);
+    i += 1;
+  }
+  return assignIds;
+}
+console.log(addIdNumbers1(itemColorPrice1));
+spaceBar();
 
 // 3. Convert a string into a hash with keys for each letter in the string and values for the number of times the letter appears in the string.
 // For example, "bookkeeper" becomes {"b" => 1, "o" => 2, "k" => 2, "e" => 3, "p" => 1, "r" => 1}.
+const word = "bookkeeper";
+const word1 = "Ultimately it will count the spaces as well"
+
+function hashLettersInWord(wordInput) {
+  let letterList = wordInput.split("");
+  let wordHash = {};
+
+  for (let i = 0; i < letterList.length; i++) {
+    if (wordHash[letterList[i]] === undefined) {
+      wordHash[letterList[i]] = 1;
+    } else {
+      wordHash[letterList[i]] += 1;
+    }
+  }
+  return wordHash;
+}
+
+console.log(hashLettersInWord(word));
+console.log(hashLettersInWord(word1));
 
 // 4. Convert a hash into an array of arrays.
 // For example, {"chair" => 100, "book" => 14} becomes [["chair", 100], ["book", 14]].
