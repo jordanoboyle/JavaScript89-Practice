@@ -114,12 +114,53 @@ function putIdsInNewHash(personHash) {
   return idInHash;
 }
 console.log(putIdsInNewHash(nameAgeHash));
+spaceBar();
 
 // 6. Convert an array of strings into a hash with keys for each string in the array and values for the number of times the string appears in the array.
-// For example, ["do", "or", "do", "not"] becomes {"do" => 2, "or" => 1, "not" => 1}.
+// For example, ["do", "or", "do", "not", "do", "or", "do", "not"] becomes {"do" => 4, "or" => 2, "not" => 2}.
+const wordsOne = ["do", "or", "do", "not", "do", "or", "do", "not"];
+
+function hashCountWords(countingArr) {
+  let countObject = {};
+  countingArr.forEach(word => {
+    if (countObject[word] === undefined) {
+      countObject[word] = 1;
+    } else {
+      countObject[word] += 1;
+    }
+  });
+  return countObject;
+}
+console.log(hashCountWords(wordsOne));
+spaceBar();
 
 // 7. Convert a hash into a flat array containing all the hash’s keys and values.
-// For example, {"a" => 1, "b" => 2, "c" => 3, "d" => 4} becomes ["a", 1, "b", 2, "c", 3, "d", 4].
+// For example, {"a" => 1, "b" => 2, "c" => 3, "d" => 4, "e" => 5, "f" => 6} becomes ["a", 1, "b", 2, "c", 3, "d", 4, "e",  5, "f",  6].
+const letterNumberHash = {"a": 1, "b": 2, "c": 3, "d": 4, "e": 5, "f": 6}; 
+//AGAIN BEST DRY I HAVE DONE SO FAR O(N)
+function convertLetNumArrHash(objectLetNum) {
+  let letterNumArr = [];
+
+  Object.entries(objectLetNum).forEach(([key,value]) => {
+    letterNumArr.push(key, value);
+  });
+  return letterNumArr;
+}
+console.log(convertLetNumArrHash(letterNumberHash));
+
+//THERE IS ANOTHER WAY WITH A FOR...OF LOOP
+const letterNumberHash1 = {"a": 1, "b": 2, "c": 3, "d": 4, "e": 5, "f": 6, "g": 7}; 
+
+function convertLetNumArrHash1(objectLetNum) {
+  let letterNumArr = [];
+
+  for (const [key, value] of Object.entries(objectLetNum)) {
+    letterNumArr.push(key, value);
+  }
+  return letterNumArr;
+}
+console.log(convertLetNumArrHash1(letterNumberHash1));
+spaceBar();
 
 // 8. Combine data from a hash with names and prices and an array of hashes with names, colors, and weights to make a new hash.
 // For example, {"chair" => 75, "book" => 15} and [{name: "chair", color: "red", weight: 10}, {name: "book", color: "black", weight: 1}] becomes {"chair" => {price: 75, color: "red", weight: 10}, "book" => {price: 15, color: "black", weight: 1}}.
