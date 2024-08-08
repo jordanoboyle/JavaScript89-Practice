@@ -163,7 +163,21 @@ console.log(convertLetNumArrHash1(letterNumberHash1));
 spaceBar();
 
 // 8. Combine data from a hash with names and prices and an array of hashes with names, colors, and weights to make a new hash.
-// For example, {"chair" => 75, "book" => 15} and [{name: "chair", color: "red", weight: 10}, {name: "book", color: "black", weight: 1}] becomes {"chair" => {price: 75, color: "red", weight: 10}, "book" => {price: 15, color: "black", weight: 1}}.
+// For example, {"chair" => 75, "book" => 15, "table" => 85} and [{name: "chair", color: "red", weight: 10}, {name: "book", color: "black", weight: 1}, {name: "table", color: "green", weight: 25}] becomes {"chair" => {price: 75, color: "red", weight: 10}, "book" => {price: 15, color: "black", weight: 1}, "table" => {price: 85, color: "green", weight: 25}}.
+const prices = {"chair": 75, "book": 15, "table": 85}
+const details = [{name: "chair", color: "red", weight: 10}, {name: "book", color: "black", weight: 1}, {name: "table", color: "green", weight: 25}];
+
+//I still always screw this one up!
+function itemDetailHash(titlePrices, itemDetails) {
+  let itemKey = {};
+  for (let i = 0; i < itemDetails.length; i++) {
+    itemDetails[i].price = titlePrices[itemDetails[i].name];
+    delete itemDetails[i].name;
+    itemKey[Object.keys(titlePrices)[i]] = itemDetails[i];
+  }
+  return itemKey;
+}
+console.log(itemDetailHash(prices, details));
 
 // 9. Convert an array of hashes into a hash of arrays, using the author as keys and the titles as values.
 // For example, [{author: "Jeff Smith", title: "Bone"}, {author: "George Orwell", title: "1984"}, {author: "Jeff Smith", title: "RASL"}] becomes {"Jeff Smith" => ["Bone", "RASL"], "George Orwell" => ["1984"]}.
