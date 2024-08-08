@@ -95,10 +95,25 @@ function hashToArray(hashedItems) {
   return itemsArray;
 }
 console.log(hashToArray(itemsHash));
-
+spaceBar();
 
 // 5. Convert a hash into an array of hashes using the keys from each hash as the :id key in each of the array's hashes.
-// For example, {321 => {name: "Alice", age: 31}, 322 => {name: "Maria", age: 27}} becomes [{id: 321, name: "Alice", age: 31}, {id: 322, name: "Maria", age: 27}].
+// For example, {321 => {name: "Alice", age: 31}, 322 => {name: "Maria", age: 27}, 323 => {name: "Noctis", age: 25}} becomes [{id: 321, name: "Alice", age: 31}, {id: 322, name: "Maria", age: 27}, {id: 323, name: "Noctis", age: 25}].
+const nameAgeHash = {321: {name: "Alice", age: 31}, 322: {name: "Maria", age: 27}, 323: {name: "Noctis", age: 25}};
+
+// IN MY OPINION THIS IS PRETTY DRY WITH O(N)
+function putIdsInNewHash(personHash) {
+  let idInHash = [];
+  Object.entries(personHash).forEach(([key, value]) => {
+    let h = {};
+    h.id = key;
+    h.name = value.name;
+    h.age = value.age;
+    idInHash.push(h);
+  })
+  return idInHash;
+}
+console.log(putIdsInNewHash(nameAgeHash));
 
 // 6. Convert an array of strings into a hash with keys for each string in the array and values for the number of times the string appears in the array.
 // For example, ["do", "or", "do", "not"] becomes {"do" => 2, "or" => 1, "not" => 1}.
