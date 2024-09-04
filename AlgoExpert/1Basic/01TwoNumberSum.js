@@ -49,5 +49,18 @@ console.log(twoNumberSum2(arr1, targetSum));
 function twoNumberSum3(array, targetSum) {
 
   //keep track of the number while interating over the array
-  //Set used so we can check if a given number 
+  //Set used so we can check if a given number has been seen
+  const seen = new Set();
+
+  for (let num of array) {
+    const complement = targetSum - num;
+    if (seen.has(complement)) {
+      return [num, complement];
+    }
+    //mark the number as seen
+    seen.add(num);
+  }
+  return [];
 }
+
+console.log(twoNumberSum3(arr1, targetSum));
