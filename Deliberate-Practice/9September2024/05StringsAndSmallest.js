@@ -25,7 +25,7 @@ function joinStringsWithCommas(stringArray) {
   let commaString = "";
 
   stringArray.forEach(word => {
-    if (stringArray.indexOf(word) == stringArray.length - 1) {
+    if (stringArray.indexOf(word) === stringArray.length - 1) {
       commaString += word;
     } else {
       commaString += word + ", ";
@@ -55,6 +55,12 @@ const arr6 = [-4.5, 2.9];
 function smallestTwoNumbers(numArray) {
   if (numArray.length < 2) {
     return "Array must have two elements.";
+  } else if (numArray.length === 2) {
+    if (numArray[0] < numArray[1]) {
+      return [numArray[0], numArray[1]];
+    } else {
+      return [numArray[1], numArray[0]];
+    }
   }
 
   let small1 = numArray[0];
