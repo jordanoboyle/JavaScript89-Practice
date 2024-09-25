@@ -15,29 +15,23 @@ const arr2 = [-10, -1, 0, 1, 2, 3, 7, 8, 10, 15];
 const arr3 = [1.5, 2.5, 3, 4.5, 5, 6, 6.5, 7.5, 8.5, 9, 10.5];
 // Pairs for sum 9: [[1.5, 7.5], [2.5, 6.5], [3, 6]]
 
+function findPairSumToGiven(numArr, givenSum) {
+  let pairs = [];
 
-function pairsSumToGivenNumber(sortedNumsArray, numberSumTo) {
-  let pairsArray = [];
-  
-  let RP = sortedNumsArray.length - 1;
   let LP = 0;
+  let RP = numArr.length - 1;
 
   while (LP < RP) {
-    if (sortedNumsArray[LP] + sortedNumsArray[RP] === numberSumTo) {
-      pairsArray.push([sortedNumsArray[LP], sortedNumsArray[RP]]);
-      // console.log(LP, RP);
+    if (numArr[LP] + numArr[RP] === givenSum) {
+      pairs.push([numArr[LP], numArr[RP]]);
       LP += 1;
-      RP -= 1;
-    } else if (sortedNumsArray[LP] + sortedNumsArray[RP] < numberSumTo) {
-      LP += 1;
-    } else if (sortedNumsArray[LP] + sortedNumsArray[RP] > numberSumTo) {
+    } else {
       RP -= 1;
     }
-    
   }
-  return pairsArray;
+  return pairs;
 }
 
-console.log(pairsSumToGivenNumber(arr1, 10));
-console.log(pairsSumToGivenNumber(arr2, 0));
-console.log(pairsSumToGivenNumber(arr3, 9));
+console.log(findPairSumToGiven(arr1, 10));
+console.log(findPairSumToGiven(arr2, 0));
+console.log(findPairSumToGiven(arr3, 9));
