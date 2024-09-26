@@ -17,24 +17,24 @@ let target4 = -6.0;
 
 function findClosestTotal(numArr, targetSum) {
   //need to record both numbers
-  let closestDiff = Math.abs((numArr[0] + numArr[numArr.length -1]) - targetSum);
+  let closestDiff = Math.abs((numArr[0] + numArr[numArr.length - 1]) - targetSum);
 
   let numL = 0;
   let numR = 0;
 
   let LP = 0;
-  let RP = numArr.length - 1;
+  let RP = numArr.length - 1; 
 
   while (LP < RP) {
     let currentSum = numArr[LP] + numArr[RP];
-    let currentDiff = targetSum - Math.abs(currentSum);
+    let currentDiff =  Math.abs(currentSum - targetSum);
 
     if (currentDiff < closestDiff) {
       closestDiff = currentDiff;
       numL = numArr[LP];
       numR = numArr[RP];
     }
-    if (closestDiff <= Math.abs(targetSum)) {
+    if (currentSum < targetSum ) {
       LP++;
     } else {
       RP--;
@@ -45,3 +45,6 @@ function findClosestTotal(numArr, targetSum) {
 }
 
 console.log(findClosestTotal(arr1,target1));
+console.log(findClosestTotal(arr2,target2));
+console.log(findClosestTotal(arr3,target3));
+console.log(findClosestTotal(arr4,target4));
