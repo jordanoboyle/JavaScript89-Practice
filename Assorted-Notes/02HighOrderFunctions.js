@@ -30,3 +30,24 @@ function checkForEven(number) {
 }
 
 console.log(checkIfEven(checkForEven, 8));
+
+console.log("%%%%%%%%%%%%%%%%%%");
+
+
+//Here is another example of a high order function that checks the results of the callback function
+const addTwo = num => {
+  return num + 2;
+}
+
+const checkConsistentOutput = (func, val) => {
+  let checkA = val + 2;
+  let checkB = func(val);
+
+  if (checkA === checkB) {
+    return func(val);
+  } else {
+    return "inconsistent result"
+  }
+}
+
+console.log(checkConsistentOutput(addTwo, 3));
