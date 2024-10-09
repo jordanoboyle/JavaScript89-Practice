@@ -37,40 +37,47 @@ function createOneZeroRandomArray(lengthCompArray) {
 
 function determineTournamentWinner(comps, results) {
   let pointTotals = {};
-  let testingTeam = [];
+  // let testingTeam = [];
 
-
-  console.log(results);
+  let highTeamScore = [comps[0][0], 0];
 
   for (let i = 0; i < comps.length; i++) {
-    let team1 = comps[i][0];
-    let team2 = comps[i][1];
-    testingTeam.push([team1, team2, results[i]]);
+    let homeTeam = comps[i][1];
+    let awayTeam = comps[i][0];
 
-    
+    if (pointTotals[homeTeam] === undefined) {
+      pointTotals[homeTeam] = 0;
+    } 
+    if (pointTotals[awayTeam] === undefined) {
+      pointTotals[awayTeam] = 0;
+    }
 
     if (results[i] === 0) {
-      if (pointTotals[team1] === undefined) {
-        pointTotals[team1] = 3;
-        if (pointTotals[team2] === undefined) {
-          pointTotals[team2] = 0;
-        }
-      } else {
-        pointTotals[comps[i][0]] += 3;
+      pointTotals[homeTeam] += 3;
+      if (pointTotals[homeTeam] > highTeamScore[1]) {
+        highTeamScore = [homeTeam, pointTotals[homeTeam]]
       }
     } else {
-      if (pointTotals[team2] === undefined) {
-        pointTotals[team2] = 3;
-        if (pointTotals[team1 === undefined]) {
-          pointTotals[team1] === 0;
-        }
-      } else {
-        pointTotals[team2] += 3;
+      pointTotals[awayTeam] += 3;
+      if (pointTotals[awayTeam] > highTeamScore[1]) {
+        highTeamScore = [awayTeam, pointTotals[awayTeam]]
       }
     }
   }
-  console.log(testingTeam);
-  console.log(pointTotals);
+
+  return highTeamScore[0];
 }
 
-determineTournamentWinner(competitions, createOneZeroRandomArray(competitions));
+console.log(determineTournamentWinner(competitions, createOneZeroRandomArray(competitions)));
+
+let competitions2 = [
+  ["HTML", "Java"],
+  ["Java", "Python"],
+  ["Python", "HTML"],
+  ["C#", "Python"],
+  ["Java", "C#"],
+  ["C#", "HTML"]
+];
+let results2 = [0, 1, 1, 1, 0, 1];
+
+console.log(determineTournamentWinner(competitions2, results2));
