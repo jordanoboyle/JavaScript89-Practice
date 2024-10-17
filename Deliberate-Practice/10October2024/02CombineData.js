@@ -24,3 +24,4 @@ console.log(addingPrice(namePrice, description));
 
 //This is a pretty easy read, though you could turn it into a nested loop for situations where
 //you want to test the item in namePrice against the item in description (make sure for matching)
+//Dry it out by introducing variables and making it more readable. 
