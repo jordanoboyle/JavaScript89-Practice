@@ -51,3 +51,7 @@ const checkConsistentOutput = (func, val) => {
 }
 
 console.log(checkConsistentOutput(addTwo, 3));
+
+
+
+
