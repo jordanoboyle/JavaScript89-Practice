@@ -7,7 +7,7 @@ function findFirstNPrimes(desiredPrimes) {
   let primes = [];
   let start = 2;
 
-  while (n <= primes) {
+  while (primes.length <= n ) {
     let isPrime = true;
     for(let j = 2; j < start - 1; j++) {
       if (start % j === 0 ) {
@@ -18,7 +18,7 @@ function findFirstNPrimes(desiredPrimes) {
     if (isPrime) {
       primes.push(start);
     }
-    num++;
+    start++;
   }
   return primes;
 }
