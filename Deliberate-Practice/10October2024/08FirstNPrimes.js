@@ -9,7 +9,7 @@ function findFirstNPrimes(desiredPrimes) {
 
   while (primes.length <= n ) {
     let isPrime = true;
-    for(let j = 2; j < start - 1; j++) {
+    for (let j = 2; j < start - 1; j++) {
       if (start % j === 0 ) {
         isPrime = false;
         break;
