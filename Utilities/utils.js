@@ -37,3 +37,11 @@ export function eliminateDuplicates(arr) {
 
   return dupElim;
 }
+
+export function spaceBar() {
+  let space = "";
+  for (let i = 0; i < 20; i++) {
+    space += "$";
+  }
+  return console.log(space);
+}
