@@ -22,6 +22,7 @@ spaceBar();
 
 
 //This will produce a funky string, which is an unwanted side-effect of mutating objects and their properties. 
+
 const robot = {
   _energyLevel: 100,
   recharge() {
@@ -31,7 +32,8 @@ const robot = {
 };
 
 
-robot._energyLevel = 'high'
+robot._energyLevel = 'high';
 
-robot.recharge()
+robot.recharge();
+
 
